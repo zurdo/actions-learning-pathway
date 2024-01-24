@@ -39,6 +39,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: cancel previous redundant builds
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
       - name: checkout repo
         uses: actions/checkout@v3
         with:
